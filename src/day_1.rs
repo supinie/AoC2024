@@ -8,16 +8,14 @@ pub async fn answer() -> Result<(u32, u32), anyhow::Error> {
 }
 
 fn _groom_pairs(input: String) -> Vec<(u32, u32)> {
-    let pairs: Vec<(u32, u32)> = input
+    input
         .lines()
         .map(|line| {
             let numbers: Vec<u32> = line.split("   ").filter_map(|s| s.parse().ok()).collect();
 
             (numbers[0], numbers[1])
         })
-        .collect();
-
-    pairs
+        .collect()
 }
 
 fn groom(input: String) -> (Vec<u32>, Vec<u32>) {
