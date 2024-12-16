@@ -24,7 +24,7 @@ async fn main() -> Result<(), anyhow::Error> {
             _ => Err(anyhow!("Invalid day {day}. Either this day has not been solved yet or is not a day in advent.")),
         };
         match answer {
-            Ok(number) => println!("day {day}: {number}"),
+            Ok(number) => println!("day {day}: {:?}", number),
             Err(e) => println!("{e}"),
         }
     }
