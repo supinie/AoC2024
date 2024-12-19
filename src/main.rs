@@ -3,6 +3,7 @@
 mod day_1;
 mod day_2;
 mod day_3;
+mod day_5;
 mod util;
 
 use anyhow::anyhow;
@@ -27,6 +28,7 @@ async fn main() -> Result<(), anyhow::Error> {
             1 => day_1::answer().await,
             2 => day_2::answer().await,
             3 => day_3::answer().await,
+            5 => day_5::answer().await,
             _ => Err(anyhow!("Invalid day {day}. Either this day has not been solved yet or is not a day in advent.")),
         };
         match answer {
