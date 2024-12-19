@@ -4,7 +4,8 @@ pub async fn answer() -> Result<(u32, u32), anyhow::Error> {
     let (rules, updates) = groom(util::get_input(5).await?);
     let valid_updates = test_updates(updates, rules);
     println!("{:?}", valid_updates);
-    Ok((1, 1))
+    let part_1 = sum_middles(valid_updates);
+    Ok((part_1, 1))
 }
 
 fn groom(input: String) -> (Vec<(u32, u32)>, Vec<Vec<u32>>) {
@@ -50,5 +51,9 @@ fn test_updates(updates: Vec<Vec<u32>>, rules: Vec<(u32, u32)>) -> Vec<Vec<u32>>
 }
 
 fn sum_middles(valid_updates: Vec<Vec<u32>>) -> u32 {
-    1
+    valid_updates.iter().fold(0, |acc, updates| {
+        println!("{:?}", updates);
+        println!("{:?}", updates[((updates.len() + 1) / 2) - 1]);
+        acc + updates[((updates.len() + 1) / 2) - 1]
+    })
 }
